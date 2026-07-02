@@ -15,8 +15,8 @@ A complete full-stack application for managing college events, student registrat
 | Service | URL |
 |---------|-----|
 | **Frontend** | [https://college-event-management-orpin.vercel.app](https://college-event-management-orpin.vercel.app) |
-| **Backend API** | [https://college-event-management-t6fj.onrender.com](https://college-event-management-t6fj.onrender.com) |
-| **Swagger UI** | [https://college-event-management-t6fj.onrender.com/swagger-ui.html](https://college-event-management-t6fj.onrender.com/swagger-ui.html) |
+| **Backend API** | [https://college-event-management-fpmk.onrender.com](https://college-event-management-fpmk.onrender.com) |
+| **Swagger UI** | [https://college-event-management-fpmk.onrender.com/swagger-ui/index.html](https://college-event-management-fpmk.onrender.com/swagger-ui/index.html) |
 
 ## ✨ Features
 
