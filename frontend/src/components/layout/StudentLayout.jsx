@@ -14,7 +14,7 @@ import {
   FaUser
 } from 'react-icons/fa'
 import { useAuth } from '../../context/AuthContext'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 
 
 function StudentLayout({ children }) {
@@ -62,9 +62,9 @@ function StudentLayout({ children }) {
           <div className="flex items-center justify-between p-4 border-b border-borderLight dark:border-darkBorder">
             <Link to="/dashboard/student" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <img src={logo} alt="EventElite" className="w-8 h-8 object-contain" />
+                <img src={logo} alt="CodeStorm" className="w-8 h-8 object-contain" />
               </div>
-              <span className="font-bold text-primary dark:text-darkText text-lg">EventElite</span>
+              <span className="font-bold text-primary dark:text-darkText text-lg">CodeStorm</span>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}

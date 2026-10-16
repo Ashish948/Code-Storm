@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react'
+import { createContext, useState, useContext } from 'react'
 import authService from '../services/authService'
 
 const AuthContext = createContext()
@@ -6,22 +6,15 @@ const AuthContext = createContext()
 export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const currentUser = authService.getCurrentUser()
-    setUser(currentUser)
-    setLoading(false)
-  }, [])
+  const [user, setUser] = useState(() => authService.getCurrentUser())
+  const loading = false
 
   const login = async (email, password, roleType) => {
     try {
-      let response
       if (roleType === 'student') {
-        response = await authService.studentLogin(email, password)
+        await authService.studentLogin(email, password)
       } else {
-        response = await authService.adminLogin(email, password)
+        await authService.adminLogin(email, password)
       }
       
       const userData = authService.getCurrentUser()
@@ -30,13 +23,13 @@ export const AuthProvider = ({ children }) => {
       return { success: true, role: userData?.role }
     } catch (error) {
       console.log('Login error:', error)
-      return { success: false, error: error.response?.data || 'Login failed' }
+      return { success: false, error: error.response?.data || error.message || 'Login failed' }
     }
   }
 
   const superAdminLogin = async (secretKey) => {
     try {
-      const response = await authService.superAdminLogin(secretKey)
+      await authService.superAdminLogin(secretKey)
       const userData = authService.getCurrentUser()
       setUser(userData)
       return { success: true, role: 'SUPER_ADMIN' }

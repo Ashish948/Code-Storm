@@ -1,0 +1,11 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="white"/>
+  <circle cx="200" cy="200" r="132" fill="#F9D545"/>
+  <path d="M137 153C158 157 180 162 200 176V245C179 229 158 222 137 219V153Z" fill="#050505"/>
+  <path d="M263 153C242 157 220 162 200 176V245C221 229 242 222 263 219V153Z" fill="#050505"/>
+  <path d="M143 190C163 193 181 198 197 207" stroke="#F9D545" stroke-width="4" stroke-linecap="round"/>
+  <path d="M143 201C163 204 181 209 197 218" stroke="#F9D545" stroke-width="4" stroke-linecap="round"/>
+  <path d="M257 190C237 193 219 198 203 207" stroke="#F9D545" stroke-width="4" stroke-linecap="round"/>
+  <path d="M257 201C237 204 219 209 203 218" stroke="#F9D545" stroke-width="4" stroke-linecap="round"/>
+  <text x="200" y="278" text-anchor="middle" fill="#050505" font-family="Arial, sans-serif" font-size="35" font-weight="700">CodeStorm</text>
+</svg>

@@ -22,7 +22,7 @@ function EventDetails() {
       const response = await studentService.getEventDetails(eventId)
       setEvent(response.event)
       setIsRegistered(response.isRegistered || false)
-    } catch (error) {
+    } catch {
       toast.error('Failed to load event details')
       navigate('/dashboard/student/events')
     } finally {

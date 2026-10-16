@@ -144,7 +144,7 @@ function InstitutionRegister() {
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                 <FaUniversity className="text-white text-sm" />
               </div>
-              <span className="text-xl font-bold text-primary dark:text-darkText">EventElite</span>
+              <span className="text-xl font-bold text-primary dark:text-darkText">CodeStorm</span>
             </Link>
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -169,7 +169,7 @@ function InstitutionRegister() {
                 Register Your Institution
               </h1>
               <p className="text-textSecondary dark:text-darkTextSecondary mt-2">
-                Join EventElite and start managing college events
+                Join CodeStorm and start managing college events
               </p>
             </div>
 

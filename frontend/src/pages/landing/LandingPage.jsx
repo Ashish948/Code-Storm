@@ -16,7 +16,7 @@ import {
   FaUserTie,
   FaUserGraduate
 } from 'react-icons/fa'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 import heroImage from '../../assets/hero.jpeg'
 import institutionImg from '../../assets/institution.webp'
 import adminImg from '../../assets/admin.avif'
@@ -81,8 +81,8 @@ function LandingPage() {
           <div className="flex justify-between items-center h-20">
             {/* Logo - Increased Size */}
             <div className="flex items-center gap-3 cursor-pointer">
-              <img src={logo} alt="EventElite" className="w-10 h-10 object-contain" />
-              <span className="text-2xl font-bold text-primary dark:text-darkText">EventElite</span>
+              <img src={logo} alt="CodeStorm" className="w-10 h-10 object-contain" />
+              <span className="text-2xl font-bold text-primary dark:text-darkText">CodeStorm</span>
             </div>
 
             {/* Desktop Menu */}
@@ -90,7 +90,6 @@ function LandingPage() {
               <a href="#home" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition">Home</a>
               <a href="#features" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition">Features</a>
               <a href="#roles" className="btn-primary px-5 py-2 text-sm">Get Started</a>
-              <a href="#contact" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition">Contact</a>
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 className="p-2 rounded-full hover:bg-pink transition-colors"
@@ -123,7 +122,6 @@ function LandingPage() {
                 <a href="#home" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary transition py-2" onClick={() => setMobileMenuOpen(false)}>Home</a>
                 <a href="#features" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary transition py-2" onClick={() => setMobileMenuOpen(false)}>Features</a>
                 <a href="#roles" className="btn-primary text-center" onClick={() => setMobileMenuOpen(false)}>Get Started</a>
-                <a href="#contact" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary transition py-2" onClick={() => setMobileMenuOpen(false)}>Contact</a>
               </div>
             </div>
           )}
@@ -146,7 +144,6 @@ function LandingPage() {
               <a href="#roles" className="btn-primary inline-flex items-center gap-2">
                 Get Started <FaArrowRight />
               </a>
-              <a href="#features" className="btn-outline">Learn More</a>
             </div>
            </div>
 
@@ -226,8 +223,8 @@ function LandingPage() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <div className="flex items-center gap-2 justify-center md:justify-start">
-                <img src={logo} alt="EventElite" className="w-8 h-8 object-contain" />
-                <span className="text-xl font-bold text-primary dark:text-darkText">EventElite</span>
+                <img src={logo} alt="CodeStorm" className="w-8 h-8 object-contain" />
+                <span className="text-xl font-bold text-primary dark:text-darkText">CodeStorm</span>
               </div>
               <p className="text-textSecondary dark:text-darkTextSecondary text-sm mt-2">
                 Smart College Event Management Platform
@@ -236,9 +233,6 @@ function LandingPage() {
             <div className="flex flex-wrap gap-8 justify-center">
               <a href="#home" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition text-sm">Home</a>
               <a href="#features" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition text-sm">Features</a>
-              <a href="#roles" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition text-sm">Get Started</a>
-              <a href="#" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition text-sm">Privacy</a>
-              <a href="#" className="text-textSecondary dark:text-darkTextSecondary hover:text-primary dark:hover:text-secondary transition text-sm">Terms</a>
             </div>
           </div>
         </div>

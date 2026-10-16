@@ -53,7 +53,7 @@ function AdminLogin() {
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                 <FaUserTie className="text-white text-sm" />
               </div>
-              <span className="text-xl font-bold text-primary dark:text-darkText">EventElite</span>
+              <span className="text-xl font-bold text-primary dark:text-darkText">CodeStorm</span>
             </Link>
             <button
               onClick={() => setDarkMode(!darkMode)}

@@ -13,7 +13,7 @@ function Events() {
     fetchEvents()
   }, [])
 
-  const fetchEvents = async () => {
+  async function fetchEvents() {
     try {
       const response = await studentService.getUpcomingEvents()
       console.log('API Response:', response)
@@ -125,15 +125,17 @@ function Events() {
                   
                   <button
                     onClick={() => handleRegister(event.id)}
-                    disabled={registering === event.id || isFull}
+                    disabled={registering === event.id || isFull || event.isRegistered}
                     className={`w-full py-2 rounded-button font-semibold transition-all flex items-center justify-center gap-2 ${
-                      isFull 
+                      isFull || event.isRegistered
                         ? 'bg-gray-300 cursor-not-allowed text-gray-500'
                         : 'btn-primary'
                     }`}
                   >
                     {registering === event.id ? (
                       'Registering...'
+                    ) : event.isRegistered ? (
+                      'Registered'
                     ) : isFull ? (
                       'Event Full'
                     ) : (

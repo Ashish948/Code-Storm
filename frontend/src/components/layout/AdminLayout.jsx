@@ -15,7 +15,7 @@ import {
   FaUser
 } from 'react-icons/fa'
 import { useAuth } from '../../context/AuthContext'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 
 function AdminLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -63,8 +63,8 @@ function AdminLayout({ children }) {
           {/* Sidebar Header with Logo */}
           <div className="flex items-center justify-between p-4 border-b border-borderLight dark:border-darkBorder">
             <Link to="/dashboard/admin" className="flex items-center gap-2">
-              <img src={logo} alt="EventElite" className="w-8 h-8 object-contain" />
-              <span className="font-bold text-primary dark:text-darkText text-lg">EventElite</span>
+              <img src={logo} alt="CodeStorm" className="w-8 h-8 object-contain" />
+              <span className="font-bold text-primary dark:text-darkText text-lg">CodeStorm</span>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}

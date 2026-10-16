@@ -20,7 +20,7 @@ function Dashboard() {
       setStats(dashboardRes.data)
       setInstitutions(institutionsRes.data.institutions || [])
     } catch (error) {
-      toast.error(error.response?.data || 'Failed to load dashboard data')
+      toast.error(error.message || 'Failed to load dashboard data')
     } finally {
       setLoading(false)
     }
@@ -40,7 +40,7 @@ function Dashboard() {
       toast.success(currentStatus ? 'Institution disabled' : 'Institution enabled')
       fetchData()
     } catch (error) {
-      toast.error(error.response?.data || 'Failed to update institution')
+      toast.error(error.message || 'Failed to update institution')
     } finally {
       setToggling(null)
     }

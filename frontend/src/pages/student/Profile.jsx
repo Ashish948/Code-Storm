@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FaUser, FaEnvelope, FaGraduationCap, FaCalendarAlt, FaSave } from 'react-icons/fa'
 import StudentLayout from '../../components/layout/StudentLayout'
 import { useAuth } from '../../context/AuthContext'
+import studentService from '../../services/studentService'
 import toast from 'react-hot-toast'
 
 function Profile() {
@@ -24,11 +25,18 @@ function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    // TODO: Update profile API
-    setTimeout(() => {
+    try {
+      await studentService.updateProfile({
+        name: formData.name,
+        branch: formData.branch,
+        year: formData.year
+      })
       toast.success('Profile updated successfully!')
+    } catch (error) {
+      toast.error(error.message || 'Failed to update profile')
+    } finally {
       setLoading(false)
-    }, 1000)
+    }
   }
 
   return (

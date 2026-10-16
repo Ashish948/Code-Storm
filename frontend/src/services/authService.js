@@ -1,79 +1,45 @@
-import api from './api'
+const createUser = (email, role, name) => ({
+  id: role === 'STUDENT' ? 1 : role === 'INSTITUTION_ADMIN' ? 100 : 999,
+  name: name || (role === 'SUPER_ADMIN' ? 'Super Admin' : email.split('@')[0]),
+  email,
+  role,
+  institutionId: role === 'SUPER_ADMIN' ? null : 1,
+  institutionName: role === 'SUPER_ADMIN' ? null : 'CodeStorm College',
+})
+
+const saveUser = (user) => {
+  localStorage.setItem('token', `demo-${user.role.toLowerCase()}`)
+  localStorage.setItem('user', JSON.stringify(user))
+  return { token: localStorage.getItem('token'), userId: user.id, role: user.role, ...user }
+}
 
 const authService = {
-  // Student Login
   studentLogin: async (email, password) => {
-  const response = await api.post('/auth/login', { email, password })
-  if (response.data.token) {
-    localStorage.setItem('token', response.data.token)
-    localStorage.setItem('user', JSON.stringify({
-      id: response.data.userId,
-      email: email,
-      role: response.data.role,        // ← Important
-      institutionId: response.data.institutionId,
-      institutionName: response.data.institutionName
-    }))
-  }
-  return response.data
-},
-
-  // Admin Login
- adminLogin: async (email, password) => {
-  const response = await api.post('/auth/login', { email, password })
-  if (response.data.token) {
-    localStorage.setItem('token', response.data.token)
-    localStorage.setItem('user', JSON.stringify({
-      id: response.data.userId,
-      name: response.data.name || email.split('@')[0],
-      email: email,
-      role: response.data.role,
-      institutionId: response.data.institutionId,
-      institutionName: response.data.institutionName || 'Institution'
-    }))
-  }
-  return response.data
-},
-
-  // Super Admin Login via Secret Key
+    if (!email.trim() || !password.trim()) throw new Error('Email and password are required')
+    return saveUser(createUser(email, 'STUDENT'))
+  },
+  adminLogin: async (email, password) => {
+    if (!email.trim() || !password.trim()) throw new Error('Email and password are required')
+    return saveUser(createUser(email, 'INSTITUTION_ADMIN'))
+  },
   superAdminLogin: async (secretKey) => {
-    const response = await api.post('/auth/super-admin/login', { key: secretKey })
-    if (response.data.token) {
-      localStorage.setItem('token', response.data.token)
-      localStorage.setItem('user', JSON.stringify({
-        id: response.data.userId,
-        name: 'Super Admin',
-        email: 'superadmin@eventelite.com',
-        role: response.data.role,
-        institutionId: null,
-        institutionName: null
-      }))
-    }
-    return response.data
+    if (!secretKey.trim()) throw new Error('Secret key is required')
+    return saveUser(createUser('superadmin@codestorm.com', 'SUPER_ADMIN', 'Super Admin'))
   },
-
-  // Institution Registration
   registerInstitution: async (data) => {
-    const response = await api.post('/auth/register/institution', data)
-    return response.data
+    localStorage.setItem('codestorm-pending-institution', JSON.stringify(data))
+    return { message: 'Institution registered successfully. You can now use the demo admin login.' }
   },
-
-  // Logout
   logout: () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     window.location.href = '/'
   },
-
-  // Get current user
   getCurrentUser: () => {
     const user = localStorage.getItem('user')
     return user ? JSON.parse(user) : null
   },
-
-  // Check if logged in
-  isLoggedIn: () => {
-    return localStorage.getItem('token') !== null
-  }
+  isLoggedIn: () => localStorage.getItem('token') !== null,
 }
 
 export default authService
